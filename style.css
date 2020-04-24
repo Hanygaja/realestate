@@ -1,0 +1,87 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-blue-color: #4449fe;
+}
+
+.containerConent {
+    width: 80%;
+    margin: 25px auto;
+}
+
+/* Banner Section */
+
+.thumbnail {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-45%,-800%);
+    font-size: 28px;
+}
+
+/* Search Section */
+.row {
+    padding-top: 100px;
+}
+
+/* About Page */
+.about-img {
+    height: 400px;
+    width: 900px;
+}
+
+.contents {
+    padding-left: 200px;
+    padding-bottom: 50px;
+}
+
+@media only screen and (max-width: 375px){
+    .about-img {
+        width: 300px;
+        height: 200px;
+        padding-left: 40px;
+    }
+    .contents{
+        padding-left: 0px;
+    }
+    .header-about{
+        width: 300px;
+        padding-left: 40px;
+    }
+}
+
+.title {
+    color: #4449fe;
+}
+
+.sub-title {
+    font-weight: bold;
+    color: #4445a1;
+}
+
+.header-about{
+    color: #4449fe;
+}
+
+.contents p {
+    line-height: 1.6em;
+    word-wrap: break-word;
+    width: 80%;
+}
+
+/* Footer Section */
+.ic {
+    padding-left: 10px;
+}
+
+/* Contact Section */
+.contact-row {
+    width: 60%;
+    padding: 200px 0;
+}
+
+/* Property Page */

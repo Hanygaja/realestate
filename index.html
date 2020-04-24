@@ -1,0 +1,472 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    
+    <title>Document</title>
+</head>
+<body>
+    <!-- Nav Section -->
+    <nav class="nav-wraper indigo">
+        <div class="container">
+            <a href="#" class="brand-logo">Gaja</a>
+            <a href="#" class="sidenav-trigger" data-target="mobile-links"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                  <a href="/index.html">Home</a>
+                </li>
+                <li>
+                  <a href="/about.html">About</a>
+                </li>
+                <li>
+                  <a href="/contact.html">Contact</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                  <a href="#" class="modal-trigger" data-target="modal-account">Account</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                  <a href="#" id="logout">Logout</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                  <a href="#" class="modal-trigger" data-target="modal-create">Create Post</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                  <a href="#" class="modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out" style="display: none;">
+                  <a href="#" class="modal-trigger" data-target="modal-signup">Sign up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-links">
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+    </ul><!-- ./Nav Section -->
+
+
+    <!-- SIGN UP MODAL -->
+    <div id="modal-signup" class="modal">
+      <div class="modal-content">
+        <h4>Sign up</h4><br>
+        <form id="signup-form">
+          <div class="input-field">
+            <input type="email" id="signup-email" required>
+            <label for="signup-email">Email Address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="signup-password" required>
+            <label for="signup-password">Choose password</label>
+          </div>
+          <button class="btn indigo z-depth-0">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- LOGIN MODAL -->
+    <div id="modal-login" class="modal">
+      <div class="modal-content">
+        <h4>Login</h4><br>
+        <form id="login-form">
+          <div class="input-field">
+            <input type="email" id="login-email" required>
+            <label for="login-email">Email Address</label>
+          </div>
+          <div class="input-field">
+            <input type="password" id="login-password" required>
+            <label for="login-password">Your password</label>
+          </div>
+          <button class="btn indigo z-depth-0">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+      <div class="modal-content center-align">
+        <h4>Account details</h4><br>
+        <div class="account-details"></div>
+      </div>
+    </div>
+
+    <!-- CREATE POST MODAL -->
+    <div id="modal-create" class="modal">
+      <div class="modal-content">
+        <h4>Create Post</h4><br>
+        <form id="create-form">
+          <div class="input-field">
+            <input type="text" id="create-title" placeholder="Title for your property">
+          </div>
+          <div class="input-field">
+            <select id="add-city">
+              <option>Choose a city</option>
+              <option">Adana</option>
+              <option">Adıyaman</option>
+              <option">Afyonkarahisar</option>
+              <option">Ağrı</option>
+              <option">Amasya</option>
+              <option">Ankara</option>
+              <option">Antalya</option>
+              <option">Artvin</option>
+              <option">Aydın</option>
+              <option">Balıkesir</option>
+              <option">Bilecik</option>
+              <option">Bingöl</option>
+              <option">Bitlis</option>
+              <option">Bolu</option>
+              <option">Burdur</option>
+              <option">Bursa</option>
+              <option">Çanakkale</option>
+              <option">Çankırı</option>
+              <option">Çorum</option>
+              <option">Denizli</option>
+              <option">Diyarbakır</option>
+              <option">Edirne</option>
+              <option">Elazığ</option>
+              <option">Erzincan</option>
+              <option">Erzurum</option>
+              <option>Eskişehir</option>
+              <option7">Gaziantep</option>
+              <option">Giresun</option>
+              <option">Gümüşhane</option>
+              <option">Hakkâri</option>
+              <option">Hatay</option>
+              <option">Isparta</option>
+              <option">Mersin</option>
+              <option">İstanbul</option>
+              <option">İzmir</option>
+              <option">Kars</option>
+              <option">Kastamonu</option>
+              <option">Kayseri</option>
+              <option">Kırklareli</option>
+              <option">Kırşehir</option>
+              <option">Kocaeli</option>
+              <option">Konya</option>
+              <option">Kütahya</option>
+              <option">Malatya</option>
+              <option">Manisa</option>
+              <option">Kahramanmaraş</option>
+              <option">Mardin</option>
+              <option">Muğla</option>
+              <option">Muş</option>
+              <option">Nevşehir</option>
+              <option">Niğde</option>
+              <option">Ordu</option>
+              <option">Rize</option>
+              <option">Sakarya</option>
+              <option>Samsun</option>
+              <option>Siirt</option>
+              <option>Sinop</option>
+              <option>Sivas</option>
+              <option>Tekirdağ</option>
+              <option>Tokat</option>
+              <option>Trabzon</option>
+              <option>Tunceli</option>
+              <option>Şanlıurfa</option>
+              <option>Uşak</option>
+              <option>Van</option>
+              <option>Yozgat</option>
+              <option>Zonguldak</option>
+              <option>Aksaray</option>
+              <option>Bayburt</option>
+              <option>Karaman</option>
+              <option>Kırıkkale</option>
+              <option>Batman</option>
+              <option>Şırnak</option>
+              <option>Bartın</option>
+              <option>Ardahan</option>
+              <option>Iğdır</option>
+              <option>Yalova</option>
+              <option>Karabük</option>
+              <option>Kilis</option>
+              <option>Osmaniye</option>
+              <option>Düzce</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <select id="type-rent-sale">
+              <option value="0">Type</option>
+              <option value="Rent">Rent</option>
+              <option value="Sale">Sale</option>
+            </select>
+          </div>
+          <div class="input-field">
+            <select id="add-rooms">
+              <option value="0">Bed rooms</option>
+              <option value="1">1</option>  
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+          </select>
+          </div>
+          <div class="input-field">
+            <input type="number" id="add-price" placeholder="Price">
+          </div>
+          <div class = "file-field input-field">
+            <div class = "btn indigo">
+               <span>Browse</span>
+               <input type = "file" multiple id="upload-file" />
+            </div>
+            
+            <div class = "file-path-wrapper">
+               <input class = "file-path validate" type = "text"
+                  placeholder = "Upload multiple files" />
+            </div>
+         </div>
+          <button class="btn indigo z-depth-0">Create Post</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <!-- Banner Section -->
+    <div class="carousel carousel-slider" data-indicators ="true">
+        <div class="carousel-fixed-item">
+            <p class="white-text thumbnail">Find the perfect property</p>
+          </div>
+        <a href="#" class="carousel-item"><img src="/images/banner/istanbul.jpg" alt="istanbul"></a>
+        <a href="#" class="carousel-item"><img src="/images/banner/new.jpg" alt="turkey"></a>
+        <a href="#" class="carousel-item"><img src="/images/banner/Maison_Marquis.jpg" alt="istanbul"></a>
+        <a href="#" class="carousel-item"><img src="/images/banner/marina.jpg" alt="istanbul"></a>
+    </div><!-- ./Banner Section -->
+
+
+    
+    <div class="container">
+    <!-- Search Section -->
+    
+        <form class="col s8 l1" onsubmit="filteredPrices(event)">
+            <div class="row">
+                <div class="input-field col s4 l2">
+                    <select class="all-cities">
+                      <option value="">Choose...</option>
+                      <option value="1">Adana</option>
+                      <option value="2">Adıyaman</option>
+                      <option value="3">Afyonkarahisar</option>
+                      <option value="4">Ağrı</option>
+                      <option value="5">Amasya</option>
+                      <option value="6">Ankara</option>
+                      <option value="7">Antalya</option>
+                      <option value="8">Artvin</option>
+                      <option value="9">Aydın</option>
+                      <option value="10">Balıkesir</option>
+                      <option value="11">Bilecik</option>
+                      <option value="12">Bingöl</option>
+                      <option value="13">Bitlis</option>
+                      <option value="14">Bolu</option>
+                      <option value="15">Burdur</option>
+                      <option value="16">Bursa</option>
+                      <option value="17">Çanakkale</option>
+                      <option value="18">Çankırı</option>
+                      <option value="19">Çorum</option>
+                      <option value="20">Denizli</option>
+                      <option value="21">Diyarbakır</option>
+                      <option value="22">Edirne</option>
+                      <option value="23">Elazığ</option>
+                      <option value="24">Erzincan</option>
+                      <option value="25">Erzurum</option>
+                      <option value="26">Eskişehir</option>
+                      <option value="27">Gaziantep</option>
+                      <option value="28">Giresun</option>
+                      <option value="29">Gümüşhane</option>
+                      <option value="30">Hakkâri</option>
+                      <option value="31">Hatay</option>
+                      <option value="32">Isparta</option>
+                      <option value="33">Mersin</option>
+                      <option value="34">İstanbul</option>
+                      <option value="35">İzmir</option>
+                      <option value="36">Kars</option>
+                      <option value="37">Kastamonu</option>
+                      <option value="38">Kayseri</option>
+                      <option value="39">Kırklareli</option>
+                      <option value="40">Kırşehir</option>
+                      <option value="41">Kocaeli</option>
+                      <option value="42">Konya</option>
+                      <option value="43">Kütahya</option>
+                      <option value="44">Malatya</option>
+                      <option value="45">Manisa</option>
+                      <option value="46">Kahramanmaraş</option>
+                      <option value="47">Mardin</option>
+                      <option value="48">Muğla</option>
+                      <option value="49">Muş</option>
+                      <option value="50">Nevşehir</option>
+                      <option value="51">Niğde</option>
+                      <option value="52">Ordu</option>
+                      <option value="53">Rize</option>
+                      <option value="54">Sakarya</option>
+                      <option value="55">Samsun</option>
+                      <option value="56">Siirt</option>
+                      <option value="57">Sinop</option>
+                      <option value="58">Sivas</option>
+                      <option value="59">Tekirdağ</option>
+                      <option value="60">Tokat</option>
+                      <option value="61">Trabzon</option>
+                      <option value="62">Tunceli</option>
+                      <option value="63">Şanlıurfa</option>
+                      <option value="64">Uşak</option>
+                      <option value="65">Van</option>
+                      <option value="66">Yozgat</option>
+                      <option value="67">Zonguldak</option>
+                      <option value="68">Aksaray</option>
+                      <option value="69">Bayburt</option>
+                      <option value="70">Karaman</option>
+                      <option value="71">Kırıkkale</option>
+                      <option value="72">Batman</option>
+                      <option value="73">Şırnak</option>
+                      <option value="74">Bartın</option>
+                      <option value="75">Ardahan</option>
+                      <option value="76">Iğdır</option>
+                      <option value="77">Yalova</option>
+                      <option value="78">Karabük</option>
+                      <option value="79">Kilis</option>
+                      <option value="80">Osmaniye</option>
+                      <option value="81">Düzce</option>
+                    </select>
+                </div>
+                <div class="input-field col s4 l2">
+                    <select class="rent-sale" >
+                        <option value="0">Type</option>
+                        <option value="Rent">Rent</option>
+                        <option value="Sale">Sale</option>
+                    </select>
+                </div>
+                
+                <div class="input-field col s5 l2">
+                    <select class="min-rooms">
+                        <option value="0">Min Rooms</option>
+                        <option value="1">1</option>  
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="input-field col s5 l2">
+                    <select class="max-rooms">
+                        <option value="0">Max Rooms</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="input-field col s4 l2">
+                    <input type="text" id="min" placeholder="Min price $">
+                </div>
+                <div class="input-field col s4 l2">
+                    <input type="text" id="max" placeholder="Max price $">
+                </div> 
+                  
+            </div>
+            <button class="btn waves-effect indigo right" type="submit">Search
+                <i class="material-icons right">send</i>
+              </button>
+        </form><!-- ./Search Section -->
+
+        <!-- Show Section -->
+        <div class="row all-items showing-prop">
+            
+             
+            
+          </div><!-- ./Show Section -->
+          <img  id="imagi">
+          
+    </div><!-- ./ End of the container -->
+
+
+    <!-- Footer Section -->
+    <footer class="page-footer indigo">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Background</h5>
+            <p class="grey-text text-lighten-4">GAJA's Turkey Real Estate Agency, founded by Hany Gaja in 2012 is the first Turkish real estate franchise to be established in all around Turkey.
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="/index.html">Home</a></li>
+              <li><a class="grey-text text-lighten-3" href="/about.html">About</a></li>
+              <li><a class="grey-text text-lighten-3" href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © 2020 Copyright to Gaja
+        <a class="grey-text white-text right ic" href="#!"><i class="fab fa-facebook fa-lg"></i></a>
+        <a class="grey-text white-text right ic" href="https://www.instagram.com/hanygaja/"><i class="fab fa-instagram fa-lg"></i></a>
+        <a class="grey-text white-text right ic" href="#!"><i class="fab fa-twitter fa-lg"></i></a>
+        </a>
+        </div>
+      </div>
+    </footer><!-- ./Footer Section -->
+    
+
+
+
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoZOOZpjkb45VyM4txrlzWXLD7fG4tzto",
+        authDomain: "real-estate-7a144.firebaseapp.com",
+        databaseURL: "https://real-estate-7a144.firebaseio.com",
+        projectId: "real-estate-7a144",
+        storageBucket: "real-estate-7a144.appspot.com",
+        messagingSenderId: "354349174638",
+        appId: "1:354349174638:web:623aeb5770d70bf49d7b7f",
+        measurementId: "G-MFHWNPVN1N"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      // Make auth and firestore references
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+      const storage = firebase.storage();
+    </script>
+    <!-- Javascript files -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
+    <script src="filter.js"></script>
+    
+</body>
+</html>
