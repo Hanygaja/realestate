@@ -3,44 +3,69 @@ auth.onAuthStateChanged(user => {
     setupUI(user);
 })
 
-// get data from the cloud Database
+// get data from the cloud Database and display on the home page
 db.collection('properties').onSnapshot(snapshot => {
     setupProp(snapshot.docs);
     
 });
+// get data from cloud database and display on the sub page
+db.collection('properties').onSnapshot(snapshot => {
+    setupSub(snapshot.docs);
+
+})
+ 
 
 
-// Create new POST and send it to firebase clould database and storage
+// Create new POST and send it to firebase storage and clould forestore database
+var clicker = 0; // init click check
 const createForm = document.querySelector('#create-form');
-createForm.addEventListener('submit', e => {
+createForm.addEventListener('submit', async e => {
     e.preventDefault();
-    
-    const ref = firebase.storage().ref()
-    const file = createForm['upload-file'].files[0]
-    const name = new Date() + '-' + file.name
-    
-    const task = ref.child(name).put(file)
-    task.then(snapshot => snapshot.ref.getDownloadURL())
-    .then(url => {
-        setupProp(url);
-    })
+    ++clicker; // increase on every click
+    if (clicker == 1) { // if it first time
+
+    createForm.setAttribute('disabled', 'true'); // prevent another clicks.
+
+    const ref = firebase.storage().ref();
+
+    const images = createForm['upload-file'].files;
+    const list = []
+
+
+    for await(img of images){
+        if (img !== 'length'){
+        const name = new Date() + '-' + img.name
+        const metadat = { contentType: img.type }
+        const task = await ref.child(name).put(img, metadat)
+            .then(snapshot => snapshot.ref.getDownloadURL());
+            list.push(task)}
+    }
+
 
     // adding to the Database
-    db.collection('properties').add({
+    await db.collection('properties').add({
         title: createForm['create-title'].value,
         city: createForm['add-city'].value,
         type: createForm['type-rent-sale'].value,
         rooms: createForm['add-rooms'].value,
-        price: createForm['add-price'].value
+        price: createForm['add-price'].value,
+        image: list
     }).then(() => {
-        // close the modal and reset form
+        //reset form
+        createForm.reset();
+        createForm.removeAttribute('disabled'); // make it clickable again
+        clicker = 0;
+    }).then( () => {
+        //close modal
         const modal = document.querySelector('#modal-create');
         M.Modal.getInstance(modal).close();
-        createForm.reset();
     }).catch(err => {
         console.log(err.message);
     })
-});
+    }
+    else {return} // fallback
+    })
+
 
 
 // Signup
@@ -108,9 +133,9 @@ $(document).ready(function(){
         indicators: true
       });
 
-    // setInterval(function(){
-    //     $('.carousel').carousel('next');
-    // }, 3000);
+    setInterval(function(){
+        $('.carousel').carousel('next');
+    }, 3000);
 });
 /* Search Section */
 $(document).ready(function(){

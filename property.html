@@ -37,52 +37,8 @@
 
 
     <!-- Property Section -->
-    <div class="container" style="height: auto;">
-        <div class="row">
-            <div class="col l6 s12 m12">
-                <div class="carousel carousel-slider" data-indicators ="true" style="border-radius: 5px;">
-                    <a href="#" class="carousel-item"><img src="/images/property/IMG_6818.JPG" alt="istanbul" style="height: 390px;"></a>
-                    <a href="#" class="carousel-item"><img src="/images/property/IMG_6820.JPG" alt="turkey" style="height: 390px;"></a>
-                    <a href="#" class="carousel-item"><img src="/images/property/IMG_6823.JPG" alt="istanbul" style="height: 390px;"></a>
-                    <a href="#" class="carousel-item"><img src="/images/property/IMG_6826.JPG" alt="istanbul" style="height: 390px;"></a>
-                </div>
-                <div class="btn indigo waves-affect prev">Prev</div>
-                <div class="btn indigo waves-affect right next">Next</div>
-            </div>
-            <div class="col l6 s12 m12">
-                <div class="card" style="height: 357px; border-radius: 5px; background-color: #f9f9f9; padding: 10px;">
-                    <h5 class="center">A fully furnitured Villa for sale</h5><br><br>
-                    <span style="font-weight: bold;">Price: 340,000 &#36;</span><br><br>
-                    <span><i class="material-icons blue-text">room</i> Located in Marina, Ankara.</span><br><br>
-                    <span><i class="material-icons blue-text">single_bed</i> Total Rooms 5.</span><br><br>
-                    <span><i class="material-icons blue-text">bathtub</i> Num of Bathrooms 2.</span><br><br>
-                    <span><i class="material-icons blue-text">view_quilt</i> Net Size (m²) 130.</span>
-                    
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col l6">
-                <div class="card" style="border-radius: 5px; background-color: #f9f9f9;">
-                    <div style="padding: 15px;">
-                    <h4 class="center">A fully furnitured Villa for sale</h4><br><br>
-                    <p>Ankara Circus: A beautiful one Apartment situated close to the University and all daily amenities. The layout comprises of a bright and modern open plan kitchen/dining/living area with a sofa bed, five bedrooms and a stylish bathroom with a walk-in shower. The 130 square meter terrace is ideal for entertaining and enjoys open views. This property is being sold fully furnished and equipped with an air conditioner, LED TV, washing machine, dishwasher, microwave and mosquito nets. Ready to move into.</p><br>
-                    <span><b>Features</b>:</span><hr><br>
-                    <div><i class="material-icons blue-text">check</i>Furnitured</div>
-                    <div><i class="material-icons blue-text">check</i>Lift</div>
-                    <div><i class="material-icons blue-text">check</i>Near Public Transportation</div>
-                    <div><i class="material-icons blue-text">check</i>Near Fitness center</div>
-                    <div><i class="material-icons blue-text">check</i>Near Schools</div>
-                    <div><i class="material-icons blue-text">check</i>Rental Investor</div>
-                    <div><i class="material-icons blue-text">check</i>Heating Flooring</div>
-                    <div><i class="material-icons blue-text">check</i>Inland with Views</div>
-                    <div><i class="material-icons blue-text">check</i>Near Hospital</div>
-                    <div><i class="material-icons blue-text">check</i>Near Shops</div>
-                    <div><i class="material-icons blue-text">check</i>Near Children's Park</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="container all-properties" style="height: auto;">
+        <!-- Imported the property from app.js file dynamically -->
     </div>
     
     
@@ -124,12 +80,37 @@
 
 
 
-
-
     
+
+         <!-- The core Firebase JS SDK is always required and must be listed first -->
+         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+         <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-storage.js"></script>
+         <script>
+           // Your web app's Firebase configuration
+           var firebaseConfig = {
+             apiKey: "AIzaSyBoZOOZpjkb45VyM4txrlzWXLD7fG4tzto",
+             authDomain: "real-estate-7a144.firebaseapp.com",
+             databaseURL: "https://real-estate-7a144.firebaseio.com",
+             projectId: "real-estate-7a144",
+             storageBucket: "real-estate-7a144.appspot.com",
+             messagingSenderId: "354349174638",
+             appId: "1:354349174638:web:623aeb5770d70bf49d7b7f",
+             measurementId: "G-MFHWNPVN1N"
+           };
+           // Initialize Firebase
+           firebase.initializeApp(firebaseConfig);
+           // Make auth and firestore references
+           const auth = firebase.auth();
+           const db = firebase.firestore();
+           const storage = firebase.storage();
+         </script>
+         <!-- Javascript files -->
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="script-property.js"></script>
+    <script src="app.js"></script>
+    <script src="auth.js"></script>
     
 </body>
 </html>
