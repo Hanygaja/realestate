@@ -14,6 +14,7 @@ const setupUI = (user) => {
 }
 
 
+// Displaying the properties to the HomePage
 const setupProp = data => {
   let html = '';
   data.forEach(doc => {
@@ -37,15 +38,15 @@ const setupProp = data => {
       </div>
   </div>
     `;
+    filteredPrices(li)
     html += li
 
-    showingProp.innerHTML = html;
-    
+    showingProp.innerHTML = html; 
   })
 }
 
 
-
+// Displaying the properties to the Properties Page(Subpage)
 const setupSub = data => {
 
   const id = window.location.href.split('?')[1];
@@ -71,7 +72,7 @@ const setupSub = data => {
             <div class="col l6 s12 m12">
                 <div class="card" style="height: 357px; border-radius: 5px; background-color: #f9f9f9; padding: 10px;">
                       <h5 class="center">${info.title}</h5><br><br>
-                      <span style="font-weight: bold;">Price: ${info.price} &#36;</span><br><br>
+                      <span style="font-weight: bold;"><span class="blue-text">Price:</span> ${info.price} &#36;</span><br><br>
                       <span><i class="material-icons blue-text">room</i> Located in ${info.city}.</span><br><br>
                       <span><i class="material-icons blue-text">single_bed</i> Total Rooms ${info.rooms}.</span><br><br>
                       

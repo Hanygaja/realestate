@@ -11,7 +11,6 @@ db.collection('properties').onSnapshot(snapshot => {
 // get data from cloud database and display on the sub page
 db.collection('properties').onSnapshot(snapshot => {
     setupSub(snapshot.docs);
-
 })
  
 
@@ -133,9 +132,9 @@ $(document).ready(function(){
         indicators: true
       });
 
-    setInterval(function(){
-        $('.carousel').carousel('next');
-    }, 3000);
+    // setInterval(function(){
+    //     $('.carousel').carousel('next');
+    // }, 3000);
 });
 /* Search Section */
 $(document).ready(function(){
